@@ -1,0 +1,506 @@
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7-Day LinkedIn Sales Test — One Page Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: #e4e4e7;
+    line-height: 1.6;
+    padding: 40px 20px;
+  }
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #27272a;
+  }
+  .badge {
+    display: inline-block;
+    background: #18181b;
+    border: 1px solid #3b82f6;
+    color: #60a5fa;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: #71717a;
+  }
+  .subtitle strong { color: #a1a1aa; }
+  .meta {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #71717a;
+  }
+  .meta span { display: flex; align-items: center; gap: 6px; }
+  .meta .dot { width: 6px; height: 6px; border-radius: 50%; background: #3b82f6; }
+
+  /* Section */
+  .section {
+    margin-bottom: 40px;
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #3b82f6;
+    margin-bottom: 12px;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  p {
+    color: #a1a1aa;
+    font-size: 14.5px;
+    margin-bottom: 12px;
+  }
+
+  /* Problem / Solution Cards */
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .card {
+    background: #18181b;
+    border: 1px solid #27272a;
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .card.problem { border-left: 3px solid #ef4444; }
+  .card.solution { border-left: 3px solid #22c55e; }
+  .card h3 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+  .card.problem h3 { color: #f87171; }
+  .card.solution h3 { color: #4ade80; }
+  .card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .card li {
+    font-size: 13.5px;
+    color: #a1a1aa;
+    padding: 5px 0;
+    padding-left: 18px;
+    position: relative;
+  }
+  .card.problem li::before { content: "✕"; position: absolute; left: 0; color: #ef4444; font-size: 11px; font-weight: 700; }
+  .card.solution li::before { content: "✓"; position: absolute; left: 0; color: #22c55e; font-weight: 700; font-size: 12px; }
+
+  /* Funnel */
+  .funnel {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 24px 0;
+    overflow-x: auto;
+  }
+  .funnel-step {
+    background: #18181b;
+    border: 1px solid #27272a;
+    border-radius: 10px;
+    padding: 16px 20px;
+    min-width: 150px;
+    flex: 1;
+    text-align: center;
+  }
+  .funnel-step .step-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: #3b82f6;
+    margin-bottom: 4px;
+  }
+  .funnel-step .step-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .funnel-step .step-owner {
+    font-size: 11px;
+    color: #71717a;
+  }
+  .funnel-arrow {
+    color: #3b82f6;
+    font-size: 18px;
+    padding: 0 4px;
+    flex-shrink: 0;
+  }
+
+  /* KPI Table */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 20px 0;
+  }
+  .kpi {
+    background: #18181b;
+    border: 1px solid #27272a;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+  }
+  .kpi .value {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .kpi .label {
+    font-size: 12px;
+    color: #71717a;
+    font-weight: 500;
+  }
+
+  /* Daily Minimums Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 13.5px;
+  }
+  th {
+    text-align: left;
+    padding: 10px 14px;
+    background: #18181b;
+    color: #71717a;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #27272a;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #18181b;
+    color: #a1a1aa;
+  }
+  td:first-child { color: #e4e4e7; font-weight: 500; }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+    margin: 20px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 4px;
+    bottom: 4px;
+    width: 2px;
+    background: #27272a;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 18px;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #3b82f6;
+    border: 2px solid #0a0a0a;
+  }
+  .tl-day {
+    font-size: 12px;
+    font-weight: 700;
+    color: #3b82f6;
+    margin-bottom: 2px;
+  }
+  .tl-text {
+    font-size: 13.5px;
+    color: #a1a1aa;
+  }
+
+  /* Compensation */
+  .comp-box {
+    background: linear-gradient(135deg, #18181b 0%, #1e1b2e 100%);
+    border: 1px solid #3b82f6;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 20px 0;
+  }
+  .comp-box h3 {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .comp-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 13.5px;
+    border-bottom: 1px solid rgba(59,130,246,0.15);
+  }
+  .comp-row:last-child { border: none; }
+  .comp-row .label { color: #a1a1aa; }
+  .comp-row .val { color: #fff; font-weight: 600; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid #27272a;
+    font-size: 12px;
+    color: #52525b;
+  }
+
+  @media (max-width: 640px) {
+    .cards { grid-template-columns: 1fr; }
+    .kpi-grid { grid-template-columns: 1fr; }
+    .funnel { flex-direction: column; }
+    .funnel-arrow { transform: rotate(90deg); }
+    h1 { font-size: 24px; }
+    .meta { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="badge">Internal Plan — Confidential</div>
+    <h1>7-Day LinkedIn Sales Sprint</h1>
+    <p class="subtitle">Full-funnel ownership test: <strong>Content → DMs → Close</strong></p>
+    <div class="meta">
+      <span><span class="dot"></span> Owner: Francisco Gost Scagliarini</span>
+      <span><span class="dot"></span> Sponsor: Farhoon Asim</span>
+      <span><span class="dot"></span> Duration: 7 days</span>
+    </div>
+  </div>
+
+  <!-- PROBLEM / SOLUTION -->
+  <div class="cards">
+    <div class="card problem">
+      <h3>🔴 Current Problems</h3>
+      <ul>
+        <li>DM closer unmotivated — skipping qualified leads</li>
+        <li>No speed-to-lead tracking (slow first response)</li>
+        <li>Zero daily activity minimums enforced</li>
+        <li>No visibility into lead → conversation → close pipeline</li>
+        <li>Sales manager not tracking volume or conversion</li>
+      </ul>
+    </div>
+    <div class="card solution">
+      <h3>🟢 What We're Testing</h3>
+      <ul>
+        <li>Francisco owns full LinkedIn funnel end-to-end</li>
+        <li>New or retrained DM closer with clear KPIs</li>
+        <li>Daily minimums enforced &amp; tracked in a shared sheet</li>
+        <li>Speed-to-lead target: &lt;30 min first reply</li>
+        <li>Daily stand-up reporting to Farhoon</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- REDESIGNED FUNNEL -->
+  <div class="section">
+    <div class="section-label">Redesigned Funnel</div>
+    <h2>How Every Lead Moves Through the Pipeline</h2>
+    <div class="funnel">
+      <div class="funnel-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Post Goes Live</div>
+        <div class="step-owner">Francisco</div>
+      </div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Lead Comments</div>
+        <div class="step-owner">CTA trigger</div>
+      </div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step">
+        <div class="step-num">03</div>
+        <div class="step-title">VA Sends Freebie + Qualifies</div>
+        <div class="step-owner">VA (≤15 min)</div>
+      </div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step">
+        <div class="step-num">04</div>
+        <div class="step-title">DM Closer Engages</div>
+        <div class="step-owner">Closer (≤30 min)</div>
+      </div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step">
+        <div class="step-num">05</div>
+        <div class="step-title">Sale Closed</div>
+        <div class="step-owner">Link sent → £79/mo</div>
+      </div>
+    </div>
+    <p style="font-size:13px; color:#71717a; text-align:center; margin-top:4px;">Key change: every handoff has a time SLA and is tracked in a shared Google Sheet.</p>
+  </div>
+
+  <!-- DAILY MINIMUMS -->
+  <div class="section">
+    <div class="section-label">Daily Minimums</div>
+    <h2>Non-Negotiable Activity Targets</h2>
+    <table>
+      <thead>
+        <tr><th>Activity</th><th>Daily Minimum</th><th>Owner</th><th>Tracked In</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>LinkedIn posts published</td><td>1 per day</td><td>Francisco</td><td>Content calendar</td></tr>
+        <tr><td>New qualified leads DMed</td><td>100% of qualified (same day)</td><td>DM Closer</td><td>Google Sheet</td></tr>
+        <tr><td>Follow-ups sent (no-replies)</td><td>All leads at 24h + 48h</td><td>DM Closer</td><td>Google Sheet</td></tr>
+        <tr><td>Speed to first DM (after VA freebie)</td><td>≤30 minutes</td><td>DM Closer</td><td>Timestamp log</td></tr>
+        <tr><td>End-of-day report sent</td><td>1 per day (by 9pm UK)</td><td>Francisco</td><td>Slack / WhatsApp</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- KPIs TO TRACK -->
+  <div class="section">
+    <div class="section-label">Success Metrics</div>
+    <h2>KPIs We'll Measure After 7 Days</h2>
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="value">↑</div>
+        <div class="label">Total Qualified Leads Engaged</div>
+      </div>
+      <div class="kpi">
+        <div class="value">%</div>
+        <div class="label">Lead → Conversation Start Rate</div>
+      </div>
+      <div class="kpi">
+        <div class="value">%</div>
+        <div class="label">Conversation → Close Rate</div>
+      </div>
+      <div class="kpi">
+        <div class="value">⏱</div>
+        <div class="label">Avg. Speed to First DM</div>
+      </div>
+      <div class="kpi">
+        <div class="value">£</div>
+        <div class="label">Revenue Generated (7 days)</div>
+      </div>
+      <div class="kpi">
+        <div class="value">📊</div>
+        <div class="label">Revenue per Lead (unit economics)</div>
+      </div>
+    </div>
+    <p style="font-size:13px;">Baseline will be captured from the prior 7 days of sales data. If the new process outperforms the baseline, we scale it.</p>
+  </div>
+
+  <!-- 7-DAY TIMELINE -->
+  <div class="section">
+    <div class="section-label">Execution Timeline</div>
+    <h2>Day-by-Day Plan</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-day">Day 0 — Tonight / Tomorrow AM</div>
+        <div class="tl-text">Set up tracking sheet. Make hire/keep decision on DM closer. Brief VA on new SLAs. Align on DM script (keep or tweak current optimised version).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">Day 1–2 — Ramp Up</div>
+        <div class="tl-text">Go live with new process. Francisco monitors DM closer in real-time to ensure speed-to-lead and volume targets are hit. Nightly report to Farhoon with lead count, convos started, and closes.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">Day 3–4 — Optimise</div>
+        <div class="tl-text">Review first data. Identify drop-off points (e.g., lead replies but doesn't convert — script issue? Objection handling?). A/B test CTA or lead magnet if volume is low.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">Day 5–6 — Push Volume</div>
+        <div class="tl-text">Double down on what's working. Re-engage cold leads from previous weeks who were never contacted. Increase follow-up cadence on warm leads.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">Day 7 — Review & Decide</div>
+        <div class="tl-text">Full debrief with Farhoon. Present dashboard: leads, conversations, closes, revenue, speed-to-lead. Decision: scale, iterate, or revert.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSER DECISION -->
+  <div class="section">
+    <div class="section-label">DM Closer Decision</div>
+    <h2>Option A vs Option B</h2>
+    <div class="cards">
+      <div class="card" style="border-left: 3px solid #f59e0b;">
+        <h3 style="color:#fbbf24;">A — Give Madhur a Reset</h3>
+        <ul style="list-style:none; padding:0;">
+          <li style="padding-left:0; font-size:13.5px; color:#a1a1aa; padding:5px 0;">Set clear daily targets with consequences. If minimums aren't hit for 2 consecutive days → replace immediately. Lower risk to start, but slower to fire if underperforming.</li>
+        </ul>
+      </div>
+      <div class="card" style="border-left: 3px solid #8b5cf6;">
+        <h3 style="color:#a78bfa;">B — Hire a New Closer</h3>
+        <ul style="list-style:none; padding:0;">
+          <li style="padding-left:0; font-size:13.5px; color:#a1a1aa; padding:5px 0;">Bring in a hungry, commission-driven closer (Day 0 hire, can source within 24h). Higher upfront effort but clean slate. Francisco's recommendation given the motivation issues.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPENSATION -->
+  <div class="section">
+    <div class="section-label">Compensation Proposal</div>
+    <h2>Suggested Structure (To Discuss on Call)</h2>
+    <div class="comp-box">
+      <h3>Francisco — Full Funnel Owner</h3>
+      <div class="comp-row"><span class="label">Current scope expansion</span><span class="val">Content + Sales Management</span></div>
+      <div class="comp-row"><span class="label">Suggested model</span><span class="val">Base + % of LinkedIn-attributed sales</span></div>
+      <div class="comp-row"><span class="label">Alignment</span><span class="val">Skin in the game — more closes = more pay</span></div>
+    </div>
+    <div class="comp-box" style="border-color:#27272a; background:#18181b;">
+      <h3>DM Closer</h3>
+      <div class="comp-row"><span class="label">Suggested model</span><span class="val">Low base + aggressive commission per close</span></div>
+      <div class="comp-row"><span class="label">Why</span><span class="val">Attracts self-motivated closers, weeds out slackers</span></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Prepared by Francisco Gost Scagliarini · For Farhoon Asim · March 2026
+  </div>
+
+</div>
+</body>
+</html>
